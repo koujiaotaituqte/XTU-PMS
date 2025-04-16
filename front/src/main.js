@@ -1,22 +1,23 @@
-import Vue from 'vue'
+import { createApp } from 'vue'
 import App from './App.vue'
-import VueRouter from 'vue-router'
-import LoginView from './views/Login.vue'
+import router from './router'
+import'./assets/css/global.css'
 
-import './plugin'
+import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'
+import zhCn from 'element-plus/es/locale/lang/zh-cn'
+import * as ElementPlusIconsVue from '@element-plus/icons-vue'//icon图标
 
 
-Vue.config.productionTip = false
+const app = createApp(App)
 
-Vue.use(VueRouter)
+app.use(router)
+app.use(ElementPlus, {
+    locale: zhCn,
+  })  
 
-const router = new VueRouter({
-  routes:[
-    {path: '/login' ,component: LoginView },
-  ]
-})
+app.mount('#app')
 
-new Vue({
-  render: h => h(App),
-  router
-}).$mount('#app')
+for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+    app.component(key, component)
+  }
