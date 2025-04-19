@@ -35,6 +35,9 @@
 
 <script setup>
 import { reactive } from 'vue';
+import axios from "axios";
+import request from "@/utils/request.js";
+import {ElMessage} from "element-plus";
 
 
 
@@ -48,4 +51,13 @@ const data = reactive({
     {name: '李四',phone: '12345678910',address: '张家界'}
   ]
 })
+
+request.get('admin/selectAll').then(res =>{
+  if(res.code !== '200'){
+    ElMessage.log(res)
+  }else{
+    console.log(res)
+  }
+})
+
 </script>
