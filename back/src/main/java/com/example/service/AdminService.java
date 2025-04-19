@@ -23,13 +23,13 @@ public class AdminService {
     }
 
     public List<Admin> selectAll(){
-        return adminMapper.selectAll();
+        return adminMapper.selectAll(null);
     }
 
-    public PageInfo<Admin> selectPage(Integer pageNum, Integer pageSize) {
+    public PageInfo<Admin> selectPage(Integer pageNum, Integer pageSize, String name) {
         //开启分页查询
         PageHelper.startPage(pageNum, pageSize);
-        List<Admin> list=selectAll();
+        List<Admin> list=adminMapper.selectAll(name);
         return new PageInfo<>(list);
     }
 }

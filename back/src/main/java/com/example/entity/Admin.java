@@ -9,6 +9,15 @@ public class Admin {
     private String password;
     private String phone;
     private String email;
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public Integer getId() {
         return id;

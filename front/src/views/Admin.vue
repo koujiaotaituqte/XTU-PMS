@@ -2,8 +2,8 @@
 
 <template>
   <div class="card" style="margin-bottom: 5px;">
-    <el-input style="margin-right: 5px;width: 260px;" v-model="data.name" placeholder="请输入名称查询" ></el-input>
-    <el-button type="primary">查 询</el-button>
+    <el-input clearable style="margin-right: 5px;width: 260px;" v-model="data.name" placeholder="请输入名称查询" ></el-input>
+    <el-button type="primary" @click="load">查 询</el-button>
   </div>
 
   <div class="card" style="margin-bottom: 5px;">
@@ -16,18 +16,22 @@
   <div class="card" style="margin-bottom: 5px;">
     <el-table :data="data.tableData" style="width: 100%" :header-cell-style="{color: 'black'}">
     <el-table-column type="selection" width="55"/>
-    <el-table-column prop="name" label="姓名" width="180" />
+    <el-table-column prop="username" label="账号"  />
+    <el-table-column prop="name" label="名称" />
     <el-table-column prop="phone" label="电话" />
-    <el-table-column prop="address" label="地址" width="180" />
+    <el-table-column prop="email" label="邮箱" />
   </el-table>
   </div>
 
   <div class="card">
     <el-pagination
       v-model:current-page="data.pageNum"
-      :page-size="data.pageSize"
-      layout="total, prev, pager, next"
+      v-model:page-size="data.pageSize"
+      layout="total, sizes,prev, pager, next,jumper"
+      :page-sizes="[5,10,20]"
       :total="data.total"
+      @size-change="load"
+      @current-change="load"
     />
   </div>
 </template>
@@ -35,29 +39,36 @@
 
 <script setup>
 import { reactive } from 'vue';
-import axios from "axios";
 import request from "@/utils/request.js";
 import {ElMessage} from "element-plus";
+
 
 
 
 const data = reactive({
   name: null,
   pageNum: 1,
-  pageSize: 99,
-  total: 1,
-  tableData: [
-    {name: '张三',phone: '12345678910',address: '张家界'},
-    {name: '李四',phone: '12345678910',address: '张家界'}
-  ]
+  pageSize: 5,
+  total: 0,
+  tableData: []
 })
 
-request.get('admin/selectAll').then(res =>{
-  if(res.code !== '200'){
-    ElMessage.log(res)
-  }else{
-    console.log(res)
-  }
-})
+const load=() =>{
+  request.get('admin/selectPage',{
+    params: {
+      pageNum: data.pageNum,
+      pageSize: data.pageSize,
+      name: data.name
+    }
+  }).then(res =>{
+    if(res.code === '200'){
+      data.total=res.data.total
+      data.tableData=res.data.list
+    }else{
+      ElMessage.log(res.msg)
+    }
+  })
+}
 
+load()
 </script>
