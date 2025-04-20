@@ -14,4 +14,9 @@
         order by id desc
     </select>
 
+    <insert id = "insert">
+        insert into 'admin' (username,password,name,phone,email)
+        values(#{username},#{password},#{name},#{phone},#{email})
+    </insert>
+
 </mapper>

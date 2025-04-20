@@ -9,8 +9,8 @@
   </div>
 
   <div class="card" style="margin-bottom: 5px;">
+    <el-button type="info" @click="handleAdd">新增</el-button>
     <el-button type="danger">批量删除</el-button>
-    <el-button type="info">新增</el-button>
     <el-button type="primary">批量导入</el-button>
     <el-button type="success">批量导出</el-button>
   </div>
@@ -36,6 +36,29 @@
       @current-change="load"
     />
   </div>
+
+  <el-dialog v-model="data.formVisible" title="管理员信息" width="500">
+    <el-form :model="data.form" label-width = "80px" style="padding: 20px 30px 10px 0"> <!--上右下左-->
+      <el-form-item label="账号">
+        <el-input v-model="data.form.name" autocomplete="off" />
+      </el-form-item>
+      <el-form-item label="名称">
+        <el-input v-model="data.form.username" autocomplete="off" />
+      </el-form-item>
+      <el-form-item label="电话">
+        <el-input v-model="data.form.phone" autocomplete="off" />
+      </el-form-item>
+      <el-form-item label="邮箱">
+        <el-input v-model="data.form.email" autocomplete="off" />
+      </el-form-item>
+    </el-form>
+    <template #footer>
+      <div class="dialog-footer">
+        <el-button @click="data.formVisible = false">取 消</el-button>
+        <el-button type="primary" @click="add">保 存</el-button>
+      </div>
+    </template>
+  </el-dialog>
 </template>
 
 
@@ -53,7 +76,9 @@ const data = reactive({
   pageNum: 1,
   pageSize: 5,
   total: 0,
-  tableData: []
+  tableData: [],
+  formVisible:false,
+  form:{}
 })
 
 const load=() =>{
@@ -81,4 +106,22 @@ const reset = () => {
   data.username = null
   load()
 }
+
+const handleAdd = () =>{
+  data.formVisible = true
+  data.form = {}
+}
+const add = () =>{
+  request.post('admin/add',data.form).then(res => {
+    if(res.code === '200'){
+      ElMessage.success('新增成功')
+      data.formVisible = false
+      load()
+    }else{
+      ElMessage.log(res.msg)
+    }
+  })
+}
+
+
 </script>
