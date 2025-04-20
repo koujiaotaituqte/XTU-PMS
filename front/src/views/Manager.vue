@@ -4,10 +4,10 @@
         <div style="height: 60px; border-bottom: 1px solid #7F8A96; display: flex; align-items: center;">
              <!--左边标题-->
             <div style="display: flex; align-items: center;">
-                <img style="width: 40px;border-radius: 50%; margin-left: 10px;margin-right: 5px;" src="../assets/imgs/logo.png" alt="">
+                <img style="width: 100px;border-radius: 50%; margin-left: 10px;margin-right: 5px;" src="../assets/imgs/logo.png" alt="">
                 
                 <span style="font-size: 18px; font-weight: bold; color:#65A87D">
-                    OP666
+                    上海迪士尼度假酒店
                 </span>
 
             </div>
