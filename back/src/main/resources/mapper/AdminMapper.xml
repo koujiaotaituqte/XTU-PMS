@@ -9,6 +9,7 @@
         from `admin`
         <where>
             <if test="name != null">name like concat('%',#{name},'%')</if>
+            <if test="username != null">and username like concat('%',#{username},'%')</if>
         </where>
         order by id desc
     </select>

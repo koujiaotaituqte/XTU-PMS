@@ -26,10 +26,10 @@ public class AdminService {
         return adminMapper.selectAll(null);
     }
 
-    public PageInfo<Admin> selectPage(Integer pageNum, Integer pageSize, String name) {
+    public PageInfo<Admin> selectPage(Integer pageNum, Integer pageSize, Admin admin) {
         //开启分页查询
         PageHelper.startPage(pageNum, pageSize);
-        List<Admin> list=adminMapper.selectAll(name);
+        List<Admin> list=adminMapper.selectAll(admin);
         return new PageInfo<>(list);
     }
 }

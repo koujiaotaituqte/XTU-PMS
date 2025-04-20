@@ -35,6 +35,10 @@
 		</dependency>
 
 		<!-- 分页插件 -->
+		<!-- totol: 数据表所有数据总个数 -->
+		<!-- list: 返回数据数组 -->
+		<!-- pageNum: 当前页码 -->
+		<!-- pageSizer: 每页展示的个数 -->
 		<dependency>
 			<groupId>com.github.pagehelper</groupId>
 			<artifactId>pagehelper-spring-boot-starter</artifactId>

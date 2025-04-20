@@ -30,8 +30,8 @@ public class AdminController {
     @GetMapping("/selectPage")
     public Result selectPage(@RequestParam(defaultValue ="1") Integer pageNum,
                              @RequestParam(defaultValue = "10") Integer pageSize,
-                             @RequestParam(required = false ) String name)   {
-        PageInfo<Admin> pageInfo =adminService.selectPage(pageNum,pageSize,name);
+                             Admin admin)   {
+        PageInfo<Admin> pageInfo =adminService.selectPage(pageNum,pageSize,admin);
         return Result.success(pageInfo);
     }
 }

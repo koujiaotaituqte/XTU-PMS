@@ -2,8 +2,10 @@
 
 <template>
   <div class="card" style="margin-bottom: 5px;">
-    <el-input clearable style="margin-right: 5px;width: 260px;" v-model="data.name" placeholder="请输入名称查询" ></el-input>
+    <el-input clearable @clear='load' style="margin-right: 5px;width: 260px;" v-model="data.username" placeholder="请输入账号查询" ></el-input>
+    <el-input clearable @clear='load' style="margin-right: 5px;width: 260px;" v-model="data.name" placeholder="请输入名称查询" ></el-input>
     <el-button type="primary" @click="load">查 询</el-button>
+    <el-button type="info" @click="reset">重 置</el-button>
   </div>
 
   <div class="card" style="margin-bottom: 5px;">
@@ -47,6 +49,7 @@ import {ElMessage} from "element-plus";
 
 const data = reactive({
   name: null,
+  username: null,
   pageNum: 1,
   pageSize: 5,
   total: 0,
@@ -58,6 +61,7 @@ const load=() =>{
     params: {
       pageNum: data.pageNum,
       pageSize: data.pageSize,
+      username: data.username,
       name: data.name
     }
   }).then(res =>{
@@ -71,4 +75,10 @@ const load=() =>{
 }
 
 load()
+
+const reset = () => {
+  data.name = null
+  data.username = null
+  load()
+}
 </script>
