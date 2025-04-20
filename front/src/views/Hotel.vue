@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="card">
-      欢迎使用酒店管理
+      欢迎使用订购本酒店，这里是公告等
     </div>
   </div>
 </template>

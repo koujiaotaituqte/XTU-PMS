@@ -8,7 +8,10 @@ const router = createRouter({
       children: [
         {path: 'home',component: () => import('../views/Home.vue')},
         {path: 'admin',component: () => import('../views/Admin.vue')},
-        {path: 'hotel',component: () => import('../views/Hotel.vue')}
+        {path: 'hotel',component: () => import('../views/Hotel.vue')},
+        {path: 'hotelroom',component: () => import('../views/HotelRoom.vue')},
+        {path: 'roomcustomer',component: () => import('../views/RoomCustomer.vue')},
+        {path: 'bookcustomer',component: () => import('../views/BookCustomer.vue')}
       ]
     },
     {path: '/notFound',component: () => import('../views/404.vue'),},

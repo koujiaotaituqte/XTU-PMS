@@ -61,6 +61,9 @@
                       <span>酒店</span>
                       </template>
                       <el-menu-item index="/manager/hotel">酒店信息</el-menu-item>
+                      <el-menu-item index="/manager/hotelroom">房间信息</el-menu-item>
+                      <el-menu-item index="/manager/roomcustomer">入住信息</el-menu-item>
+                      <el-menu-item index="/manager/bookcustomer">预定信息</el-menu-item>
                     </el-sub-menu>
                 </el-menu>
                 
