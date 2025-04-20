@@ -38,17 +38,17 @@
   </div>
 
   <el-dialog v-model="data.formVisible" title="管理员信息" width="500">
-    <el-form :model="data.form" label-width = "80px" style="padding: 20px 30px 10px 0"> <!--上右下左-->
-      <el-form-item label="账号">
-        <el-input v-model="data.form.name" autocomplete="off" />
-      </el-form-item>
-      <el-form-item label="名称">
+    <el-form ref="formRef" :model="data.form" :rules="data.rules" label-width = "80px" style="padding: 20px 30px 10px 0"> <!--上右下左-->
+      <el-form-item prop="username" label="账号">
         <el-input v-model="data.form.username" autocomplete="off" />
       </el-form-item>
-      <el-form-item label="电话">
+      <el-form-item prop="name" label="名称">
+        <el-input v-model="data.form.name" autocomplete="off" />
+      </el-form-item>
+      <el-form-item prop="phone" label="电话">
         <el-input v-model="data.form.phone" autocomplete="off" />
       </el-form-item>
-      <el-form-item label="邮箱">
+      <el-form-item prop="email" label="邮箱">
         <el-input v-model="data.form.email" autocomplete="off" />
       </el-form-item>
     </el-form>
@@ -63,10 +63,9 @@
 
 
 <script setup>
-import { reactive } from 'vue';
+import { reactive, ref} from 'vue';
 import request from "@/utils/request.js";
 import {ElMessage} from "element-plus";
-
 
 
 
@@ -78,8 +77,24 @@ const data = reactive({
   total: 0,
   tableData: [],
   formVisible:false,
-  form:{}
+  form:{},
+  rules:{
+    username:[
+      {required: true, message: '请填写账号', trigger: 'blur'}  //必填,trigger是什么时候触发
+    ],
+    name:[
+      {required: true, message: '请填写名称', trigger: 'blur'}  //必填,trigger是什么时候触发
+    ],
+    phone:[
+      {required: true, message: '请填写手机号', trigger: 'blur'}  //必填,trigger是什么时候触发
+    ],
+    email:[
+      {required: true, message: '请填写邮箱', trigger: 'blur'}  //必填,trigger是什么时候触发
+    ]
+  }
 })
+
+const formRef = ref()
 
 const load=() =>{
   request.get('admin/selectPage',{
@@ -112,13 +127,17 @@ const handleAdd = () =>{
   data.form = {}
 }
 const add = () =>{
-  request.post('admin/add',data.form).then(res => {
-    if(res.code === '200'){
-      ElMessage.success('新增成功')
-      data.formVisible = false
-      load()
-    }else{
-      ElMessage.log(res.msg)
+  formRef.value.validate((valid) => {
+    if(valid){//验证通过
+      request.post('admin/add',data.form).then(res => {
+        if(res.code === '200'){
+          ElMessage.success('新增成功')
+          data.formVisible = false
+          load()
+        }else{
+          ElMessage.log(res.msg)
+        }
+      })
     }
   })
 }
