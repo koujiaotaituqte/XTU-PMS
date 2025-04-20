@@ -21,6 +21,12 @@ public class AdminController {
         adminService.add(admin);
         return Result.success();
     }
+    @PutMapping("/update")
+    public Result update(@RequestBody Admin admin) {
+        adminService.update(admin);
+        return Result.success();
+    }
+
 
     @GetMapping("/selectAll")  //   完整的请求路径：http://ip:port/admin/selectAll
     public Result selectAll() {

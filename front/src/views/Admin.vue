@@ -22,6 +22,12 @@
     <el-table-column prop="name" label="名称" />
     <el-table-column prop="phone" label="电话" />
     <el-table-column prop="email" label="邮箱" />
+    <el-table-column label="操作" width="100">
+      <template #default="scope">
+        <el-button type="primary" icon="Edit" circle @click="handleEdit(scope.row)"></el-button>
+        <el-button type="danger" icon="Delete" circle></el-button>
+      </template>
+    </el-table-column>
   </el-table>
   </div>
 
@@ -37,7 +43,7 @@
     />
   </div>
 
-  <el-dialog v-model="data.formVisible" title="管理员信息" width="500">
+  <el-dialog v-model="data.formVisible" title="管理员信息" width="50%" destroy-on-close>
     <el-form ref="formRef" :model="data.form" :rules="data.rules" label-width = "80px" style="padding: 20px 30px 10px 0"> <!--上右下左-->
       <el-form-item prop="username" label="账号">
         <el-input v-model="data.form.username" autocomplete="off" />
@@ -55,7 +61,7 @@
     <template #footer>
       <div class="dialog-footer">
         <el-button @click="data.formVisible = false">取 消</el-button>
-        <el-button type="primary" @click="add">保 存</el-button>
+        <el-button type="primary" @click="save">保 存</el-button>
       </div>
     </template>
   </el-dialog>
@@ -66,6 +72,7 @@
 import { reactive, ref} from 'vue';
 import request from "@/utils/request.js";
 import {ElMessage} from "element-plus";
+import {formToJSON} from "axios";
 
 
 
@@ -135,12 +142,36 @@ const add = () =>{
           data.formVisible = false
           load()
         }else{
-          ElMessage.log(res.msg)
+          ElMessage.error(res.msg)
         }
       })
     }
   })
 }
 
+const handleEdit = (row) => {
+  data.form = JSON.parse(JSON.stringify(row))
+  data.formVisible = true
+}
+
+const update =()=>{
+  formRef.value.validate((valid) => {
+    if(valid){//验证通过
+      request.put('admin/update',data.form).then(res => {
+        if(res.code === '200'){
+          ElMessage.success('修改成功')
+          data.formVisible = false
+          load()
+        }else{
+          ElMessage.error(res.msg)
+        }
+      })
+    }
+  })
+}
+
+const save = () => {
+  data.form.id ? update() : add()
+}
 
 </script>
