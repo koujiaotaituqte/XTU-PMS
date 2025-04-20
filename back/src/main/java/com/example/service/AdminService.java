@@ -31,6 +31,15 @@ public class AdminService {
     public void update(Admin admin){
         adminMapper.updateById(admin);
     }
+
+    public void deleteById(Integer id) {
+        adminMapper.deleteById(id);
+    }
+    public void deleteBatch(List<Admin> list) {
+        for(Admin admin : list){
+            this.deleteById(admin.getId());
+        }
+    }
     public String admin(String name){
         if(name.equals("admin")){
             return "admin";
@@ -49,6 +58,7 @@ public class AdminService {
         List<Admin> list=adminMapper.selectAll(admin);
         return new PageInfo<>(list);
     }
+
 
 
 }

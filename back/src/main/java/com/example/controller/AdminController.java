@@ -27,6 +27,17 @@ public class AdminController {
         return Result.success();
     }
 
+    @DeleteMapping("/delete/{id}")
+    public Result delete(@PathVariable Integer id) {
+        adminService.deleteById(id);
+        return Result.success();
+    }
+
+    @DeleteMapping("/deleteBatch")
+    public Result deleteBatch(@RequestBody List<Admin> list) {
+        adminService.deleteBatch(list);
+        return Result.success();
+    }
 
     @GetMapping("/selectAll")  //   完整的请求路径：http://ip:port/admin/selectAll
     public Result selectAll() {

@@ -1,5 +1,3 @@
-
-
 <template>
   <div class="card" style="margin-bottom: 5px;">
     <el-input clearable @clear='load' style="margin-right: 5px;width: 260px;" v-model="data.username" placeholder="请输入账号查询" ></el-input>
@@ -10,13 +8,13 @@
 
   <div class="card" style="margin-bottom: 5px;">
     <el-button type="info" @click="handleAdd">新增</el-button>
-    <el-button type="danger">批量删除</el-button>
+    <el-button type="danger" @click="deleteBatch">批量删除</el-button>
     <el-button type="primary">批量导入</el-button>
     <el-button type="success">批量导出</el-button>
   </div>
 
   <div class="card" style="margin-bottom: 5px;">
-    <el-table :data="data.tableData" style="width: 100%" :header-cell-style="{color: 'black'}">
+    <el-table :data="data.tableData" style="width: 100%" @selection-change="handleSelectionChange" :header-cell-style="{color: 'black'}">
     <el-table-column type="selection" width="55"/>
     <el-table-column prop="username" label="账号"  />
     <el-table-column prop="name" label="名称" />
@@ -25,7 +23,7 @@
     <el-table-column label="操作" width="100">
       <template #default="scope">
         <el-button type="primary" icon="Edit" circle @click="handleEdit(scope.row)"></el-button>
-        <el-button type="danger" icon="Delete" circle></el-button>
+        <el-button type="danger" icon="Delete" circle @click="del(scope.row.id)"></el-button>
       </template>
     </el-table-column>
   </el-table>
@@ -71,7 +69,7 @@
 <script setup>
 import { reactive, ref} from 'vue';
 import request from "@/utils/request.js";
-import {ElMessage} from "element-plus";
+import {ElMessage, ElMessageBox} from "element-plus";
 import {formToJSON} from "axios";
 
 
@@ -98,7 +96,8 @@ const data = reactive({
     email:[
       {required: true, message: '请填写邮箱', trigger: 'blur'}  //必填,trigger是什么时候触发
     ]
-  }
+  },
+  rows: []
 })
 
 const formRef = ref()
@@ -172,6 +171,41 @@ const update =()=>{
 
 const save = () => {
   data.form.id ? update() : add()
+}
+
+const del =(id)=>{
+  ElMessageBox.confirm('删除后无法恢复，确认删除改行数据吗','删除确认',{type:"warning"}).then(res =>{
+    request.delete('admin/delete/'+id).then(res => {
+      if(res.code === '200'){
+        ElMessage.success('删除成功')
+        load()
+      }else{
+        ElMessage.error(res.msg)
+      }
+    })
+  }).catch(err => {})
+}
+
+const handleSelectionChange = (rows) => {//实际选择的数组
+  data.rows = rows
+}
+
+const deleteBatch = () =>{
+  if(data.rows.length == 0){
+    ElMessage.warning('请选择数据')
+    return
+  }
+
+  ElMessageBox.confirm('删除后无法恢复，确认删除改行数据吗','删除确认',{type:"warning"}).then(res =>{
+    request.delete('admin/deleteBatch',{data: data.rows}).then(res => {
+      if(res.code === '200'){
+        ElMessage.success('批量删除成功')
+        load()
+      }else{
+        ElMessage.error(res.msg)
+      }
+    })
+  }).catch(err => {})
 }
 
 </script>
