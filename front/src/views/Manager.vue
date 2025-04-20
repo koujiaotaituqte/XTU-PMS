@@ -52,8 +52,15 @@
                         <el-icon><location /></el-icon>
                         <span>用户管理</span>
                         </template>
-
                         <el-menu-item index="/manager/admin">管理员信息</el-menu-item>
+                    </el-sub-menu>
+
+                    <el-sub-menu index="2">
+                      <template #title>
+                      <el-icon><House /></el-icon>
+                      <span>酒店</span>
+                      </template>
+                      <el-menu-item index="/manager/hotel">酒店信息</el-menu-item>
                     </el-sub-menu>
                 </el-menu>
                 
