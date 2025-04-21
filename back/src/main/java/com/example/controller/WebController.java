@@ -1,9 +1,16 @@
 package com.example.controller;
 
 import com.example.common.Result;
+import com.example.entity.Account;
+import com.example.entity.Admin;
+import com.example.entity.User;
+import com.example.exception.CustomException;
 import com.example.service.AdminService;
+import com.example.service.UserService;
 import jakarta.annotation.Resource;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -11,6 +18,8 @@ public class WebController {
 
     @Resource
     AdminService adminService;
+    @Resource
+    UserService userService;
 
     //get请求接口
     @GetMapping("/")//接口路径
@@ -18,10 +27,24 @@ public class WebController {
         return Result.success("hello world");
     }
 
-    @GetMapping("/admin")
-    public Result admin(String name) {
-        String admin =adminService.admin(name);
-        return Result.success(admin);
+    @PostMapping("/login")
+    public Result login(@RequestBody Account account) {
+        Account dbaccount = null;
+        if("ADMIN".equals(account.getRole())) {
+            dbaccount = adminService.login(account);
+        }else if("USER".equals(account.getRole())) {
+            dbaccount = userService.login(account);
+        }else {
+            throw new CustomException("非法请求");
+        }
+        return Result.success(dbaccount);
+    }
+
+
+    @PostMapping("/register")
+    public Result register(@RequestBody User user) {
+        userService.register(user);
+        return Result.success();
     }
 
 }

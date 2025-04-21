@@ -1,38 +1,20 @@
 package com.example.entity;
 
-/**
- *  管理员信息
- */
-public class Admin extends Account {
+public class Account {
     private Integer id;
     private String username;
     private String password;
     private String phone;
     private String email;
     private String name;
-    private String ids;
-    private String[] idsArr;
     private String role;
 
-    public String getRole() { return role; }
-
-    public void setRole(String role) { this.role = role; }
-
-
-    public String[] getIdsArr(){
-        return idsArr;
+    public String getRole() {
+        return role;
     }
 
-    public void setIdsArr(String[] idsArr){
-        this.idsArr = idsArr;
-    }
-
-    public String getIds() {
-        return ids;
-    }
-
-    public void setIds(String ids) {
-        this.ids = ids;
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public String getName() {

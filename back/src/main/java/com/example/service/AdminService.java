@@ -1,4 +1,5 @@
 package com.example.service;
+import com.example.entity.Account;
 import com.example.entity.Admin;
 import com.example.mapper.AdminMapper;
 import com.github.pagehelper.PageHelper;
@@ -25,6 +26,7 @@ public class AdminService {
         if(StringUtils.isBlank(admin.getPassword())){
             String password = admin.getUsername();
             admin.setPassword(password);
+            admin.setRole("ADMIN");
         }
         adminMapper.insert(admin);
     }
@@ -60,5 +62,16 @@ public class AdminService {
     }
 
 
-
+    public Admin login(Account account) {
+        //验证账号是否存在
+        Admin dbAdmin = adminMapper.selectByUsername(account.getUsername());
+        if (dbAdmin == null) {
+            throw new CustomException("账号不存在");
+        }
+        //验证密码
+        if (!account.getPassword().equals(account.getPassword())) {//密码不正确
+            throw new CustomException("账号或密码错误");
+        }
+        return dbAdmin;
+    }
 }

@@ -7,7 +7,7 @@
                 <img style="width: 100px;border-radius: 50%; margin-left: 10px;margin-right: 5px;" src="../assets/imgs/logo.png" alt="">
                 
                 <span style="font-size: 18px; font-weight: bold; color:#65A87D">
-                    上海迪士尼度假酒店
+                    湘大酒店管理系统
                 </span>
 
             </div>
@@ -20,7 +20,7 @@
                     <div style="display: flex; align-items: center;">
                         <img style="width: 40px; height: 40px; border-radius: 50%;margin-right: 5px;" src="../assets/imgs/manager.jpg" alt="">
                         <span>
-                            管理员
+                            {{ data.user?.name }}
                         </span>
                     </div>
 
@@ -28,7 +28,7 @@
                         <el-dropdown-menu>
                             <el-dropdown-item>个人信息</el-dropdown-item>
                             <el-dropdown-item>修改密码</el-dropdown-item>
-                            <el-dropdown-item>退出登录</el-dropdown-item>
+                            <el-dropdown-item @click="login_out">退出登录</el-dropdown-item>
                         </el-dropdown-menu>
                     </template>
                 </el-dropdown>
@@ -53,6 +53,7 @@
                         <span>用户管理</span>
                         </template>
                         <el-menu-item index="/manager/admin">管理员信息</el-menu-item>
+                        <el-menu-item index="/manager/user">用户信息</el-menu-item>
                     </el-sub-menu>
 
                     <el-sub-menu index="2">
@@ -82,6 +83,24 @@
 
 <script setup>
 import router from '@/router/index.js';
+import {House} from "@element-plus/icons-vue";
+import {reactive} from "vue";
+
+const data = reactive({
+  user: JSON.parse(localStorage.getItem('code_user'))
+})
+
+const login_out = ()=> {
+  localStorage.removeItem('code_user')
+  //router.push('/login')
+  window.location.href = '/login'
+}
+
+if(!data.user?.id){
+  window.location.href = '/login'
+}
+
+
 
 </script>
 
