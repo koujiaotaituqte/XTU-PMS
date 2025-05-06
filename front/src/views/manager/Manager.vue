@@ -4,7 +4,7 @@
         <div style="height: 60px; border-bottom: 1px solid #7F8A96; display: flex; align-items: center;">
              <!--左边标题-->
             <div style="display: flex; align-items: center;">
-                <img style="width: 100px;border-radius: 50%; margin-left: 10px;margin-right: 5px;" src="../assets/imgs/logo.png" alt="">
+                <img style="width: 100px;border-radius: 50%; margin-left: 10px;margin-right: 5px;" src="../../assets/imgs/logo.png" alt="">
                 
                 <span style="font-size: 18px; font-weight: bold; color:#65A87D">
                     湘大酒店管理系统
@@ -18,7 +18,7 @@
                 
                 <el-dropdown>
                     <div style="display: flex; align-items: center;">
-                        <img style="width: 40px; height: 40px; border-radius: 50%;margin-right: 5px;" src="../assets/imgs/manager.jpg" alt="">
+                        <img style="width: 40px; height: 40px; border-radius: 50%;margin-right: 5px;" src="../../assets/imgs/manager.jpg" alt="">
                         <span>
                             {{ data.user?.name }}
                         </span>
@@ -61,10 +61,8 @@
                       <el-icon><House /></el-icon>
                       <span>酒店</span>
                       </template>
-                      <el-menu-item index="/manager/hotel">酒店信息</el-menu-item>
-                      <el-menu-item index="/manager/hotelroom">房间信息</el-menu-item>
-                      <el-menu-item index="/manager/roomcustomer">入住信息</el-menu-item>
-                      <el-menu-item index="/manager/bookcustomer">预定信息</el-menu-item>
+                      <el-menu-item index="/manager/roomCustomer">入住信息</el-menu-item>
+                      <el-menu-item index="/manager/bookCustomer">预定信息</el-menu-item>
                     </el-sub-menu>
                 </el-menu>
                 
@@ -100,7 +98,9 @@ if(!data.user?.id){
   window.location.href = '/login'
 }
 
-
+if(!(data.user.role === 'ADMIN')){
+  window.location.href = '/customer'
+}
 
 </script>
 
