@@ -47,9 +47,10 @@
                         <el-icon><House /></el-icon>
                         <span>首页</span>
                     </el-menu-item>
+
                     <el-sub-menu index="1">
                         <template #title>
-                        <el-icon><location /></el-icon>
+                        <el-icon><user /></el-icon>
                         <span>用户管理</span>
                         </template>
                         <el-menu-item index="/manager/admin">管理员信息</el-menu-item>
@@ -58,18 +59,27 @@
 
                     <el-sub-menu index="2">
                       <template #title>
-                      <el-icon><House /></el-icon>
+                        <el-icon><Monitor /></el-icon>
+                       <span>信息管理</span>
+                      </template>
+                      <el-menu-item index="/manager/notice">系统公告</el-menu-item>
+                    </el-sub-menu>
+
+                    <el-sub-menu index="3">
+                      <template #title>
+                      <el-icon><Histogram /></el-icon>
                       <span>酒店</span>
                       </template>
                       <el-menu-item index="/manager/roomCustomer">入住信息</el-menu-item>
                       <el-menu-item index="/manager/bookCustomer">预定信息</el-menu-item>
                     </el-sub-menu>
+
                 </el-menu>
                 
             </div>
 
             <!--数据渲染-->
-            <div style="flex: 1; width: 0; padding: 10px; background-color: #FBF6F6;">  
+            <div style="flex: 1; width: 0; padding: 10px; background-color: #f6fafb;">
                 <RouterView></RouterView>
             </div>
 
@@ -81,8 +91,9 @@
 
 <script setup>
 import router from '@/router/index.js';
-import {House} from "@element-plus/icons-vue";
+import {Histogram, House, Monitor} from "@element-plus/icons-vue";
 import {reactive} from "vue";
+import HotelNotice from "@/views/customer/HotelNotice.vue";
 
 const data = reactive({
   user: JSON.parse(localStorage.getItem('code_user'))

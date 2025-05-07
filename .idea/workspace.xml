@@ -5,46 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="005eb17b-f678-47b2-9af8-85841272c26a" name="更改" comment="增加注册和登录功能，区分账户是管理员还是用户，实现管理界面账户名称显示的功能，能够登入登出，在未登录情况下进入管理界面会自动跳转登录界面">
-      <change afterPath="$PROJECT_DIR$/front/src/views/customer/Customer.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/_2025_4_20_20_30____.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/_2025_4_20_23_25____.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/_2025_4_21_00_16____.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/_2025_4_21_00_47____.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/_2025_4_21_16_42____.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2025_4_20_20_30_取消提交了更改_[更改]/AdminController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2025_4_20_20_30_取消提交了更改_[更改]/AdminMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2025_4_20_20_30_取消提交了更改_[更改]/AdminService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2025_4_20_20_30_取消提交了更改_[更改]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2025_4_20_23_25_取消提交了更改_[更改]/AdminController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2025_4_20_23_25_取消提交了更改_[更改]/AdminMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2025_4_20_23_25_取消提交了更改_[更改]/AdminService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2025_4_20_23_25_取消提交了更改_[更改]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2025_4_21_00_16_取消提交了更改_[更改]/AdminController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2025_4_21_00_16_取消提交了更改_[更改]/AdminMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2025_4_21_00_16_取消提交了更改_[更改]/AdminService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2025_4_21_00_16_取消提交了更改_[更改]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2025_4_21_00_47_取消提交了更改_[更改]/AdminController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2025_4_21_00_47_取消提交了更改_[更改]/AdminMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2025_4_21_00_47_取消提交了更改_[更改]/AdminService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2025_4_21_00_47_取消提交了更改_[更改]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2025_4_21_16_42_取消提交了更改_[更改]/Admin.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2025_4_21_16_42_取消提交了更改_[更改]/AdminController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2025_4_21_16_42_取消提交了更改_[更改]/AdminMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2025_4_21_16_42_取消提交了更改_[更改]/AdminService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2025_4_21_16_42_取消提交了更改_[更改]/WebController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2025_4_21_16_42_取消提交了更改_[更改]/shelved.patch" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/back/src/main/java/com/example/controller/NoticeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back/src/main/java/com/example/entity/Notice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back/src/main/java/com/example/mapper/NoticeMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back/src/main/java/com/example/service/NoticeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back/src/main/resources/mapper/NoticeMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front/src/views/manager/Notice.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/views/404.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/views/404/404.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/views/Admin.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/views/manager/Admin.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/views/BookCustomer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/views/manager/BookCustomer.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/views/Hotel.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/views/customer/HotelNotice.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/views/HotelRoom.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/views/customer/HotelRoom.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/views/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/views/login/Login.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/views/Manager.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/views/manager/Manager.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/views/Register.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/views/login/Register.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/views/RoomCustomer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/views/manager/RoomCustomer.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/views/User.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/views/manager/User.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/views/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/views/manager/Home.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/views/manager/Manager.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/views/manager/Manager.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sql/mysql.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sql/mysql.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,32 +56,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Spring Boot.BackApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/github/XTU-PMS/front/src/views&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;npm.dev.executor&quot;: &quot;Run&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;F:\\Program Files\\JetBrains\\IntelliJ IDEA 2024.2.4\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.BackApplication.executor": "Run",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "E:/github/XTU-PMS/back/src/main/resources/mapper",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.dev.executor": "Run",
+    "ts.external.directory.path": "F:\\Program Files\\JetBrains\\IntelliJ IDEA 2024.2.4\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\github\XTU-PMS\front\src\views" />
       <recent name="E:\github\XTU-PMS\back\src\main\resources\mapper" />
+      <recent name="E:\github\XTU-PMS\front\src\views" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\github\XTU-PMS\front\src\views\manager" />
@@ -120,13 +91,13 @@
       <recent name="E:\github\XTU-PMS\front\src\views" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.example.entity" />
-      <recent name="com.example.mapper" />
-      <recent name="com.example.service" />
       <recent name="com.example.controller" />
+      <recent name="com.example.service" />
+      <recent name="com.example.mapper" />
+      <recent name="com.example.entity" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.dev">
+  <component name="RunManager" selected="Spring Boot.BackApplication">
     <configuration name="BackApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="back" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.BackApplication" />
@@ -178,6 +149,7 @@
       <workItem from="1746537257531" duration="4245000" />
       <workItem from="1746542378261" duration="685000" />
       <workItem from="1746543931332" duration="368000" />
+      <workItem from="1746622970843" duration="7056000" />
     </task>
     <task id="LOCAL-00001" summary="增加注册和登录功能，区分账户是管理员还是用户，实现管理界面账户名称显示的功能，能够登入登出，在未登录情况下进入管理界面会自动跳转登录界面">
       <option name="closed" value="true" />
