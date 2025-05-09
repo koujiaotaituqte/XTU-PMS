@@ -28,11 +28,12 @@ public class UserService {
             throw new CustomException("账号重复","500");
         }
         //默认密码为账号
+        user.setRole("USER");
         if(StringUtils.isBlank(user.getPassword())){
 
             String password = user.getUsername();
             user.setPassword(password);
-            user.setRole("USER");
+
             //如果没取名，默认和账号一致
             if(StringUtils.isBlank(user.getName())){
                 user.setName(user.getUsername());

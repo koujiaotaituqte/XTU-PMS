@@ -9,7 +9,6 @@
 
     <div class="card" style="margin-bottom: 5px;">
       <el-button type="info" @click="handleAdd">新增</el-button>
-
     </div>
 
     <div class="card" style="margin-bottom: 5px;">
@@ -25,6 +24,19 @@
           </template>
         </el-table-column>
       </el-table>
+    </div>
+
+    <!-- 新增的分页组件 -->
+    <div class="card">
+      <el-pagination
+          v-model:current-page="data.pageNum"
+          v-model:page-size="data.pageSize"
+          layout="total, sizes, prev, pager, next, jumper"
+          :page-sizes="[5, 10, 20]"
+          :total="data.total"
+          @size-change="load"
+          @current-change="load"
+      />
     </div>
 
     <el-dialog v-model="data.formVisible" title="公告信息" width="50%" destroy-on-close>
@@ -55,12 +67,12 @@ import {ElMessage, ElMessageBox} from "element-plus";
 
 const formRef = ref()
 
-const  data = reactive({
-  user : JSON.parse(localStorage.getItem('code_user')||"{}"),
-  title : null,
-  pageNum : 1,
-  pageSize : 5,
-  total : 0,
+const data = reactive({
+  user: JSON.parse(localStorage.getItem('code_user')||"{}"),
+  title: null,
+  pageNum: 1,
+  pageSize: 5,
+  total: 0,
   tableData:[],
   form:{},
   formVisible:false,
@@ -71,14 +83,12 @@ const  data = reactive({
     content:[
       {required: true, message: '请填写内容', trigger: 'blur'}
     ],
-
   }
 })
 
 const handleAdd=()=>{
   data.formVisible = true
   data.form = {}
-
 }
 
 const add =()=>{
@@ -97,7 +107,6 @@ const save =()=>{
   formRef.value.validate(valid=>{
     if(valid){
       data.form.id ? update() : add()
-      //add()
     }
   })
 }
@@ -140,17 +149,16 @@ const del=(id)=>{
 const load=()=>{
   request.get('/notice/selectPage',{
     params: {
-      pageNum :data.pageNum,
-      pageSize : data.pageSize,
-      total : data.total,
-      title : data.title,
+      pageNum: data.pageNum,
+      pageSize: data.pageSize,
+      title: data.title,
     }
   }).then(res =>{
     if(res.code === '200'){
-      data.total=res.data?.total
-      data.tableData=res.data?.list
+      data.total = res.data?.total || 0
+      data.tableData = res.data?.list || []
     }else{
-      Element.error(res.msg)
+      ElMessage.error(res.msg)
     }
   })
 }

@@ -43,7 +43,7 @@
       <!--菜单-->
       <div style="width: 240px;">
         <el-menu  router :default-active="router.currentRoute.value.path" style=" min-height: calc(100vh - 60px);">
-          <el-menu-item index="/manager/home">
+          <el-menu-item index="/customer/home">
             <el-icon><House /></el-icon>
             <span>首页</span>
           </el-menu-item>

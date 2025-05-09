@@ -18,6 +18,7 @@ const router = createRouter({
     {path: '/customer',name: 'user',component: ()=> import('../views/customer/Customer.vue'),
       children: [
         {path: 'hotelNotice',component: () => import('../views/customer/HotelNotice.vue')},
+        {path: 'home',meta: {name: '主页'},component: () => import('../views/manager/Home.vue')},
         {path: 'hotelRoom',component: () => import('../views/customer/HotelRoom.vue')},
       ]
     },
