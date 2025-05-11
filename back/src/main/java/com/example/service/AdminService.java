@@ -2,6 +2,7 @@ package com.example.service;
 import com.example.entity.Account;
 import com.example.entity.Admin;
 import com.example.mapper.AdminMapper;
+import com.example.utils.TokenUtils;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import io.micrometer.common.util.StringUtils;
@@ -72,6 +73,8 @@ public class AdminService {
         if (!account.getPassword().equals(account.getPassword())) {//密码不正确
             throw new CustomException("账号或密码错误");
         }
+        String token = TokenUtils.createToken(dbAdmin.getId()+"-"+"ADMIN", dbAdmin.getPassword());
+        dbAdmin.setToken(token);
         return dbAdmin;
     }
 
@@ -79,5 +82,10 @@ public class AdminService {
         Admin dbadmin = adminMapper.selectById(account.getId());
         dbadmin.setPassword(account.getPassword());
         adminMapper.updateById(dbadmin);
+    }
+
+    public Account selectById(Integer userId) {
+        Admin dbAdmin = adminMapper.selectById(userId);
+        return dbAdmin;
     }
 }

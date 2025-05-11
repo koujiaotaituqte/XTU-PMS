@@ -4,25 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="005eb17b-f678-47b2-9af8-85841272c26a" name="更改" comment="增加注册和登录功能，区分账户是管理员还是用户，实现管理界面账户名称显示的功能，能够登入登出，在未登录情况下进入管理界面会自动跳转登录界面">
-      <change afterPath="$PROJECT_DIR$/front/src/views/Person.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/views/UpdatePassword.vue" afterDir="false" />
+    <list default="true" id="005eb17b-f678-47b2-9af8-85841272c26a" name="更改" comment="增加注册修改个人信息和修改密码的功能">
+      <change afterPath="$PROJECT_DIR$/back/src/main/java/com/example/common/JWTInterceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back/src/main/java/com/example/common/WebConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back/src/main/java/com/example/utils/TokenUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/com/example/controller/WebController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/com/example/controller/WebController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/com/example/mapper/AdminMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/com/example/mapper/AdminMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/com/example/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/com/example/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/back/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/com/example/entity/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/com/example/entity/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/com/example/entity/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/com/example/entity/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/com/example/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/com/example/entity/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/src/main/java/com/example/service/AdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/com/example/service/AdminService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/src/main/java/com/example/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/com/example/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/target/classes/com/example/controller/WebController.class" beforeDir="false" afterPath="$PROJECT_DIR$/back/target/classes/com/example/controller/WebController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/target/classes/com/example/entity/Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/back/target/classes/com/example/entity/Account.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/target/classes/com/example/entity/Admin.class" beforeDir="false" afterPath="$PROJECT_DIR$/back/target/classes/com/example/entity/Admin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/target/classes/com/example/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/back/target/classes/com/example/entity/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/target/classes/com/example/mapper/AdminMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/back/target/classes/com/example/mapper/AdminMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/target/classes/com/example/mapper/UserMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/back/target/classes/com/example/mapper/UserMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/target/classes/com/example/service/AdminService.class" beforeDir="false" afterPath="$PROJECT_DIR$/back/target/classes/com/example/service/AdminService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/target/classes/com/example/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/back/target/classes/com/example/service/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/node_modules/.vite/deps/_metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/front/node_modules/.vite/deps/_metadata.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/node_modules/.vite/deps/element-plus_es_components_pagination_style_index.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/node_modules/.vite/deps/element-plus_es_components_pagination_style_index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/node_modules/.vite/deps/element-plus_es_components_select_style_index.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/node_modules/.vite/deps/element-plus_es_components_select_style_index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/node_modules/.vite/deps/element-plus_es_components_table-column_style_index.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/node_modules/.vite/deps/element-plus_es_components_table-column_style_index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/node_modules/.vite/deps/element-plus_es_components_table_style_index.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/node_modules/.vite/deps/element-plus_es_components_table_style_index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/views/customer/Customer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/views/customer/Customer.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/views/manager/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/views/Home.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/views/manager/Manager.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/views/manager/Manager.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/utils/request.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/utils/request.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/views/manager/Admin.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/views/manager/Admin.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/views/manager/User.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/views/manager/User.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +40,7 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -158,7 +162,7 @@
       <workItem from="1746543931332" duration="368000" />
       <workItem from="1746622970843" duration="7056000" />
       <workItem from="1746789779459" duration="3857000" />
-      <workItem from="1746952303875" duration="11031000" />
+      <workItem from="1746952303875" duration="15470000" />
     </task>
     <task id="LOCAL-00001" summary="增加注册和登录功能，区分账户是管理员还是用户，实现管理界面账户名称显示的功能，能够登入登出，在未登录情况下进入管理界面会自动跳转登录界面">
       <option name="closed" value="true" />
@@ -168,7 +172,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745228501867</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="增加注册修改个人信息和修改密码的功能">
+      <option name="closed" value="true" />
+      <created>1746969223006</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1746969223006</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -176,6 +188,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="增加注册和登录功能，区分账户是管理员还是用户，实现管理界面账户名称显示的功能，能够登入登出，在未登录情况下进入管理界面会自动跳转登录界面" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加注册和登录功能，区分账户是管理员还是用户，实现管理界面账户名称显示的功能，能够登入登出，在未登录情况下进入管理界面会自动跳转登录界面" />
+    <MESSAGE value="增加注册修改个人信息和修改密码的功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加注册修改个人信息和修改密码的功能" />
   </component>
 </project>

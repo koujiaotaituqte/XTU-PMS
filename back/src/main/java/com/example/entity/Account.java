@@ -8,7 +8,7 @@ public class Account {
     private String email;
     private String name;
     private String role;
-
+    private String token;
     public String getRole() {
         return role;
     }
@@ -63,5 +63,13 @@ public class Account {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 }

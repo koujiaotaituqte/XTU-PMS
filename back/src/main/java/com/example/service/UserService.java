@@ -1,10 +1,10 @@
 package com.example.service;
 
 import com.example.entity.Account;
-import com.example.entity.Admin;
 import com.example.entity.User;
 import com.example.exception.CustomException;
 import com.example.mapper.UserMapper;
+import com.example.utils.TokenUtils;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import io.micrometer.common.util.StringUtils;
@@ -84,6 +84,8 @@ public class UserService {
         if (!account.getPassword().equals(account.getPassword())) {//密码不正确
             throw new CustomException("账号或密码错误");
         }
+        String token = TokenUtils.createToken(dbUser.getId()+"-"+"USER", dbUser.getPassword());
+        dbUser.setToken(token);
         return dbUser ;
     }
 
@@ -96,5 +98,10 @@ public class UserService {
         User dbUser = userMapper.selectById(account.getId());
         dbUser.setPassword(account.getPassword());
         userMapper.updateById(dbUser);
+    }
+
+    public Account selectById(Integer userId) {
+        User dbUser = userMapper.selectById(userId);
+        return dbUser;
     }
 }

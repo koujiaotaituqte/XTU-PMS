@@ -13,6 +13,7 @@ public class Admin extends Account {
     private String ids;
     private String[] idsArr;
     private String role;
+    private String token;
 
     public String getRole() { return role; }
 
@@ -81,5 +82,15 @@ public class Admin extends Account {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    @Override
+    public String getToken() {
+        return token;
+    }
+
+    @Override
+    public void setToken(String token) {
+        this.token = token;
     }
 }

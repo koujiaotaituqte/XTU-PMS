@@ -124,7 +124,7 @@ const load=() =>{
       data.total=res.data.total
       data.tableData=res.data.list
     }else{
-      ElMessage.log(res.msg)
+      ElMessage.error(res.msg)
     }
   })
 }
