@@ -1,6 +1,7 @@
 package com.example.service;
 
 import com.example.entity.Account;
+import com.example.entity.Admin;
 import com.example.entity.User;
 import com.example.exception.CustomException;
 import com.example.mapper.UserMapper;
@@ -89,5 +90,11 @@ public class UserService {
     public void register(User user) {
         this.add(user);
 
+    }
+
+    public void updatePassword(Account account) {
+        User dbUser = userMapper.selectById(account.getId());
+        dbUser.setPassword(account.getPassword());
+        userMapper.updateById(dbUser);
     }
 }

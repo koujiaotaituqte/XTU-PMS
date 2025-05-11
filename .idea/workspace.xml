@@ -5,12 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="005eb17b-f678-47b2-9af8-85841272c26a" name="更改" comment="增加注册和登录功能，区分账户是管理员还是用户，实现管理界面账户名称显示的功能，能够登入登出，在未登录情况下进入管理界面会自动跳转登录界面">
+      <change afterPath="$PROJECT_DIR$/front/src/views/Person.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front/src/views/UpdatePassword.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/com/example/controller/WebController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/com/example/controller/WebController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/com/example/mapper/AdminMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/com/example/mapper/AdminMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/com/example/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/com/example/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/com/example/service/AdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/com/example/service/AdminService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/src/main/java/com/example/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/com/example/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/target/classes/com/example/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/back/target/classes/com/example/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/node_modules/.vite/deps/_metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/front/node_modules/.vite/deps/_metadata.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/node_modules/.vite/deps/element-plus_es_components_pagination_style_index.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/node_modules/.vite/deps/element-plus_es_components_pagination_style_index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/node_modules/.vite/deps/element-plus_es_components_select_style_index.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/node_modules/.vite/deps/element-plus_es_components_select_style_index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/node_modules/.vite/deps/element-plus_es_components_table-column_style_index.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/node_modules/.vite/deps/element-plus_es_components_table-column_style_index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/node_modules/.vite/deps/element-plus_es_components_table_style_index.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/node_modules/.vite/deps/element-plus_es_components_table_style_index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/router/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/views/customer/Customer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/views/customer/Customer.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/views/manager/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/views/manager/Home.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/views/manager/Notice.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/views/manager/Notice.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/views/manager/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/views/Home.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/views/manager/Manager.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/views/manager/Manager.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,11 +91,11 @@
       <recent name="E:\github\XTU-PMS\front\src\views" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\github\XTU-PMS\front\src\views" />
       <recent name="E:\github\XTU-PMS\front\src\views\manager" />
       <recent name="E:\github\XTU-PMS\front\src\views\customer" />
       <recent name="E:\github\XTU-PMS\front\src\views\404" />
       <recent name="E:\github\XTU-PMS\front\src\views\login" />
-      <recent name="E:\github\XTU-PMS\front\src\views" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.example.controller" />
@@ -146,6 +158,7 @@
       <workItem from="1746543931332" duration="368000" />
       <workItem from="1746622970843" duration="7056000" />
       <workItem from="1746789779459" duration="3857000" />
+      <workItem from="1746952303875" duration="11031000" />
     </task>
     <task id="LOCAL-00001" summary="增加注册和登录功能，区分账户是管理员还是用户，实现管理界面账户名称显示的功能，能够登入登出，在未登录情况下进入管理界面会自动跳转登录界面">
       <option name="closed" value="true" />

@@ -8,10 +8,7 @@ import com.example.exception.CustomException;
 import com.example.service.AdminService;
 import com.example.service.UserService;
 import jakarta.annotation.Resource;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class WebController {
@@ -47,4 +44,15 @@ public class WebController {
         return Result.success();
     }
 
+    @PutMapping("/updatepassword")
+    public Result updatePassword(@RequestBody Account account) {
+        if("ADMIN".equals(account.getRole())) {
+            adminService.updatePassword(account);
+        }
+        if("USER".equals(account.getRole())) {
+            userService.updatePassword(account);
+        }
+        return Result.success();
+    }
 }
+

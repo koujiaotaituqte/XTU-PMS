@@ -74,4 +74,10 @@ public class AdminService {
         }
         return dbAdmin;
     }
+
+    public void updatePassword(Account account) {
+        Admin dbadmin = adminMapper.selectById(account.getId());
+        dbadmin.setPassword(account.getPassword());
+        adminMapper.updateById(dbadmin);
+    }
 }

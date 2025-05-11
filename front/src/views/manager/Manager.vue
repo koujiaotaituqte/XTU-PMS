@@ -26,8 +26,8 @@
 
                     <template #dropdown>
                         <el-dropdown-menu>
-                            <el-dropdown-item>个人信息</el-dropdown-item>
-                            <el-dropdown-item>修改密码</el-dropdown-item>
+                            <el-dropdown-item @click="router.push('/manager/person')">个人信息</el-dropdown-item>
+                            <el-dropdown-item @click="router.push('/manager/updatepassword')">修改密码</el-dropdown-item>
                             <el-dropdown-item @click="login_out">退出登录</el-dropdown-item>
                         </el-dropdown-menu>
                     </template>
