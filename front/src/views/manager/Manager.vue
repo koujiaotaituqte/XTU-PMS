@@ -73,6 +73,7 @@
                       </template>
                       <el-menu-item index="/manager/roomCustomer">入住信息</el-menu-item>
                       <el-menu-item index="/manager/bookCustomer">预定信息</el-menu-item>
+                      <el-menu-item index="/manager/roomShow">房源展示</el-menu-item>
                     </el-sub-menu>
 
                 </el-menu>

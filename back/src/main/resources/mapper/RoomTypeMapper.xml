@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.RoomTypeMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.entity.RoomType">
+        <id column="id" property="id" />
+        <result column="title" property="title" />
+        <result column="money" property="money" />
+        <result column="avatar" property="avatar" />
+    </resultMap>
+
+    <!-- 动态查询 -->
+    <select id="selectAll" resultMap="BaseResultMap">
+        SELECT * FROM roomtype
+        <where>
+            <if test="title != null and title != ''">
+                AND title LIKE CONCAT('%', #{title}, '%')
+            </if>
+        </where>
+        ORDER BY id DESC
+    </select>
+
+    <!-- 校验房型名称唯一 -->
+    <select id="existsByTitle" resultType="boolean">
+        SELECT COUNT(*) > 0 FROM roomtype WHERE title = #{title}
+        <if test="id != null">
+            AND id != #{id}
+        </if>
+    </select>
+
+    <!-- 检查关联房间 -->
+    <select id="hasRooms" resultType="int">
+        SELECT COUNT(*) FROM room WHERE roomtype_id = #{roomTypeId}
+    </select>
+
+    <!-- 插入房型 -->
+    <insert id="insert" parameterType="com.example.entity.RoomType" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO roomtype (title, money, avatar)
+        VALUES (#{title}, #{money}, #{avatar})
+    </insert>
+
+    <!-- 更新房型 -->
+    <update id="updateById" parameterType="com.example.entity.RoomType">
+        UPDATE roomtype
+        <set>
+            <if test="title != null">title = #{title},</if>
+            <if test="money != null">money = #{money},</if>
+            <if test="avatar != null">avatar = #{avatar}</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+</mapper>

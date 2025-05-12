@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.BookRoomMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.entity.BookRoom">
+        <id column="id" property="id" />
+        <result column="roomtype_id" property="roomtypeId" />
+        <result column="user_id" property="userId" />
+        <result column="start_time" property="startTime" />
+        <result column="end_time" property="endTime" />
+        <result column="day" property="day" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, roomtype_id, user_id, start_time, end_time, day
+    </sql>
+
+    <!-- 动态查询 -->
+    <select id="selectAll" resultMap="BaseResultMap">
+        SELECT * FROM bookroom
+        <where>
+            <if test="userId != null">AND user_id = #{userId}</if>
+            <if test="roomtypeId != null">AND roomtype_id = #{roomtypeId}</if>
+        </where>
+        ORDER BY id DESC
+    </select>
+
+    <!-- 时间冲突检查 -->
+    <select id="hasTimeConflict" resultType="boolean">
+        SELECT COUNT(*) > 0
+        FROM bookroom
+        WHERE roomtype_id = #{roomtypeId}
+          AND (
+            (#{start} BETWEEN start_time AND end_time) OR
+            (#{end} BETWEEN start_time AND end_time) OR
+            (start_time BETWEEN #{start} AND #{end})
+            )
+    </select>
+
+    <!-- 插入预订 -->
+    <insert id="insert" parameterType="com.example.entity.BookRoom" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO bookroom (roomtype_id, user_id, start_time, end_time, day)
+        VALUES (#{roomtypeId}, #{userId}, #{startTime}, #{endTime}, #{day})
+    </insert>
+
+    <!-- 更新预订 -->
+    <update id="updateById" parameterType="com.example.entity.BookRoom">
+        UPDATE bookroom
+        <set>
+            <if test="roomtypeId != null">roomtype_id = #{roomtypeId},</if>
+            <if test="startTime != null">start_time = #{startTime},</if>
+            <if test="endTime != null">end_time = #{endTime},</if>
+            <if test="day != null">day = #{day}</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+</mapper>
