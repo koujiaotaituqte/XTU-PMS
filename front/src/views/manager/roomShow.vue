@@ -1,6 +1,6 @@
 <template>
   <div>
-
+    <!-- 查询条件区域 -->
     <div class="card" style="margin-bottom: 5px;">
       <el-input v-model="data.searchTitle" placeholder="房型名称" style="width: 200px; margin-right: 10px;"></el-input>
       <el-button type="primary" @click="load">查询</el-button>
@@ -39,6 +39,19 @@
           </template>
         </el-table-column>
       </el-table>
+
+      <!-- 分页控件 -->
+      <div style="margin-top: 20px; display: flex; justify-content: flex-end;">
+        <el-pagination
+            background
+            layout="total, sizes, prev, pager, next, jumper"
+            :total="data.total"
+            :page-size="data.pageSize"
+            :current-page="data.pageNum"
+            @size-change="handleSizeChange"
+            @current-change="handleCurrentChange"
+        />
+      </div>
     </div>
 
     <!-- 编辑对话框 -->
@@ -146,6 +159,17 @@ const save = () => {
 const reset = () => {
   data.searchTitle = '';
   data.pageNum = 1;
+  load();
+}
+
+// 分页相关方法
+const handleSizeChange = (pageSize) => {
+  data.pageSize = pageSize;
+  load();
+}
+
+const handleCurrentChange = (pageNum) => {
+  data.pageNum = pageNum;
   load();
 }
 
