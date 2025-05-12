@@ -7,6 +7,7 @@ public class RoomType {
     private String title;
     private Integer money;
     private String avatar;
+    private String description; // 新增字段
 
     public Integer getId() {
         return id;
@@ -38,5 +39,13 @@ public class RoomType {
 
     public void setAvatar(String avatar) {
         this.avatar = avatar;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

@@ -7,6 +7,7 @@
         <result column="title" property="title" />
         <result column="money" property="money" />
         <result column="avatar" property="avatar" />
+        <result column="description" property="description" /> <!-- 新增字段映射 -->
     </resultMap>
 
     <!-- 动态查询 -->
@@ -33,19 +34,20 @@
         SELECT COUNT(*) FROM room WHERE roomtype_id = #{roomTypeId}
     </select>
 
-    <!-- 插入时不指定ID -->
+    <!-- 修改插入语句 -->
     <insert id="insert" parameterType="com.example.entity.RoomType" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO roomtype (title, money, avatar)
-        VALUES (#{title}, #{money}, #{avatar})
+        INSERT INTO roomtype (title, money, avatar, description)
+        VALUES (#{title}, #{money}, #{avatar}, #{description})
     </insert>
 
-    <!-- 更新房型 -->
-    <update id="updateById">
+    <!-- 修改更新语句 -->
+    <update id="updateById" parameterType="com.example.entity.RoomType">
         UPDATE roomtype
         <set>
             <if test="title != null">title = #{title},</if>
             <if test="money != null">money = #{money},</if>
-            <if test="avatar != null">avatar = #{avatar}</if>
+            <if test="avatar != null">avatar = #{avatar},</if>
+            <if test="description != null">description = #{description},</if> <!-- 新增更新字段 -->
         </set>
         WHERE id = #{id}
     </update>
