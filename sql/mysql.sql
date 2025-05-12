@@ -37,12 +37,12 @@ CREATE TABLE `notice` (
 CREATE TABLE `bookroom` (
                             `roomtype_id` int NOT NULL COMMENT '房间类型id',
                             `user_id` int NOT NULL COMMENT '用户id',
-                            `id` int NOT NULL COMMENT '订单号',
-                            `start_time` datetime NOT NULL COMMENT '入住时间',
-                            `day` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '入住时长',
-                            `end_time` datetime DEFAULT NULL COMMENT '退房时间',
+                            `id` int NOT NULL AUTO_INCREMENT COMMENT '订单号',
+                            `start_time` date NOT NULL COMMENT '入住时间',
+                            `day` int DEFAULT NULL COMMENT '入住时长',
+                            `end_time` date DEFAULT NULL COMMENT '退房时间',
                             PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE `room` (
                         `id` int NOT NULL COMMENT '房间号',

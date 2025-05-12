@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
@@ -26,5 +27,5 @@ public interface BookRoomMapper {
     void deleteById(Integer id);
 
     // 检查时间冲突（XML实现）
-    boolean hasTimeConflict(Integer roomtypeId, LocalDateTime start, LocalDateTime end);
+    boolean hasTimeConflict(Integer roomtypeId, LocalDate start, LocalDate end);
 }

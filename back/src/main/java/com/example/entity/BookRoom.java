@@ -1,14 +1,14 @@
 package com.example.entity;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 public class BookRoom {
     private Integer id;
     private Integer roomtypeId;
     private Integer userId;
-    private LocalDateTime startTime;
-    private String day;
-    private LocalDateTime endTime;
+    private LocalDate startTime;
+    private Integer day;
+    private LocalDate endTime;
 
     public Integer getId() {
         return id;
@@ -34,27 +34,27 @@ public class BookRoom {
         this.userId = userId;
     }
 
-    public LocalDateTime getStartTime() {
+    public LocalDate getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(LocalDateTime startTime) {
+    public void setStartTime(LocalDate startTime) {
         this.startTime = startTime;
     }
 
-    public String getDay() {
+    public Integer getDay() {
         return day;
     }
 
-    public void setDay(String day) {
+    public void setDay(Integer day) {
         this.day = day;
     }
 
-    public LocalDateTime getEndTime() {
+    public LocalDate getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(LocalDateTime endTime) {
+    public void setEndTime(LocalDate endTime) {
         this.endTime = endTime;
     }
 }

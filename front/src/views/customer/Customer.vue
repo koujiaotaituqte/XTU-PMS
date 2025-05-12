@@ -63,7 +63,7 @@
       </div>
 
       <!--数据渲染-->
-      <div style="flex: 1; width: 0; padding: 10px; background-color: #FBF6F6;">
+      <div style="flex: 1; width: 0; padding: 10px; background-color: #ecf4ed;">
         <RouterView></RouterView>
       </div>
 

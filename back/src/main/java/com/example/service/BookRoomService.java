@@ -7,7 +7,8 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
-import java.util.Date;
+
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -17,14 +18,8 @@ public class BookRoomService {
     private BookRoomMapper bookRoomMapper;
 
     public void add(BookRoom bookRoom) {
-        // 检查时间冲突
-        if (bookRoomMapper.hasTimeConflict(
-                bookRoom.getRoomtypeId(),
-                bookRoom.getStartTime(),
-                bookRoom.getEndTime()
-        )) {
-            throw new CustomException("该时间段已被预订");
-        }
+
+
         bookRoomMapper.insert(bookRoom);
     }
 
