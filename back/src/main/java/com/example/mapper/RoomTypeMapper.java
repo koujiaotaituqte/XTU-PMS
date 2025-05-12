@@ -1,10 +1,8 @@
 package com.example.mapper;
 
 import com.example.entity.RoomType;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
+
 import java.util.List;
 
 public interface RoomTypeMapper {
@@ -23,10 +21,12 @@ public interface RoomTypeMapper {
     void deleteById(Integer id);
 
     // 校验房型名称是否存在（XML实现）
-    boolean existsByTitle(String title);
+    boolean existsByTitle(@Param("title") String title, @Param("id") Integer id);
 
     // 检查房型是否被房间使用（XML实现）
     int hasRooms(Integer roomTypeId);
 
-    boolean existsByTitle(Integer id);
+    // 检查ID是否存在
+    @Select("SELECT COUNT(*) FROM roomtype WHERE id = #{id}")
+    int existsById(Integer id);
 }

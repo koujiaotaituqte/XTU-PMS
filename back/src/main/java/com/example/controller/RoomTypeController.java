@@ -18,11 +18,9 @@ public class RoomTypeController {
 
     @PostMapping("/add")
     public Result add(@RequestBody RoomType roomType) {
-        if (roomType.getId() == null) {
-            return Result.error("400","ID不能为空");
-        }
-        if (roomTypeService.existsById(roomType.getId())) {
-            return Result.error("400", "房型ID已存在");
+        // 仅校验名称唯一性
+        if (roomTypeService.existsByTitle(roomType.getTitle(), null)) {
+            return Result.error("400", "房型名称已存在");
         }
         roomTypeService.add(roomType);
         return Result.success();

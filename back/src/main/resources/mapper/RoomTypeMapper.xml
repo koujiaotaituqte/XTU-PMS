@@ -20,7 +20,7 @@
         ORDER BY id DESC
     </select>
 
-    <!-- 校验房型名称唯一 -->
+    <!-- 名称唯一性校验 -->
     <select id="existsByTitle" resultType="boolean">
         SELECT COUNT(*) > 0 FROM roomtype WHERE title = #{title}
         <if test="id != null">
@@ -33,14 +33,14 @@
         SELECT COUNT(*) FROM room WHERE roomtype_id = #{roomTypeId}
     </select>
 
-    <!-- 插入房型 -->
+    <!-- 插入时不指定ID -->
     <insert id="insert" parameterType="com.example.entity.RoomType" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO roomtype (title, money, avatar)
         VALUES (#{title}, #{money}, #{avatar})
     </insert>
 
     <!-- 更新房型 -->
-    <update id="updateById" parameterType="com.example.entity.RoomType">
+    <update id="updateById">
         UPDATE roomtype
         <set>
             <if test="title != null">title = #{title},</if>
