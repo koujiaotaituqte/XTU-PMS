@@ -34,25 +34,27 @@ CREATE TABLE `notice` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='系统公告表';
 
 CREATE TABLE `bookroom` (
-                            `roomtype_id` int NOT NULL,
-                            `user_id` int NOT NULL,
-                            `id` int NOT NULL,
-                            `start_time` datetime NOT NULL,
-                            `day` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-                            `end_time` datetime DEFAULT NULL,
+                            `roomtype_id` int NOT NULL COMMENT '房间类型id',
+                            `user_id` int NOT NULL COMMENT '用户id',
+                            `id` int NOT NULL COMMENT '订单号',
+                            `start_time` datetime NOT NULL COMMENT '入住时间',
+                            `day` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '入住时长',
+                            `end_time` datetime DEFAULT NULL COMMENT '退房时间',
                             PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE `room` (
-                        `id` int NOT NULL,
-                        `roomtype_id` int NOT NULL,
-                        `status` int DEFAULT NULL COMMENT '0为没住人',
+                        `id` int NOT NULL COMMENT '房间号',
+                        `roomtype_id` int NOT NULL COMMENT '房间类型id',
+                        `status` int DEFAULT NULL COMMENT '状态，0为没住人',
                         PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE `roomtype` (
-                            `id` int NOT NULL,
-                            `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-                            `money` int DEFAULT NULL,
-                            `avatar` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+                            `id` int NOT NULL AUTO_INCREMENT COMMENT '房间类型id',
+                            `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '名字',
+                            `money` int DEFAULT NULL COMMENT '价格',
+                            `avatar` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '图片',
+                            `description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '房间描述',
+                            PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
