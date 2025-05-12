@@ -7,7 +7,7 @@ import com.github.pagehelper.PageInfo;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/roomCustomer")
+@RequestMapping("/room")
 public class RoomController {
 
     private final RoomService roomService;
