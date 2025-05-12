@@ -24,6 +24,12 @@
   <div class="card" style="margin-bottom: 5px;">
     <el-table :data="data.tableData" style="width: 100%" @selection-change="handleSelectionChange" :header-cell-style="{color: 'black'}">
     <el-table-column type="selection" width="55"/>
+      <el-table-column label="头像">
+        <template #default="scope">
+          <el-image v-if="scope.row.avatar" :src="scope.row.avatar" :preview-src-list="[scope.row.avatar]" :preview-teleported="true"
+                    style="width: 40px; height: 40px; border-radius: 50%; display: block" />
+        </template>
+      </el-table-column>
     <el-table-column prop="username" label="账号"  />
     <el-table-column prop="name" label="名称" />
     <el-table-column prop="phone" label="电话" />
@@ -63,6 +69,16 @@
       <el-form-item prop="email" label="邮箱">
         <el-input v-model="data.form.email" autocomplete="off" />
       </el-form-item>
+      <el-form-item prop="avatar" label="头像">
+        <el-upload action="http://localhost:9090/files/upload"
+        :on-success="handleFileSuccess"
+        :headers="{ token: data.user.token }"
+        :list-type="'picture'">
+          <el-button type="primary">
+            上传头像
+          </el-button>
+        </el-upload>
+      </el-form-item>
     </el-form>
     <template #footer>
       <div class="dialog-footer">
@@ -83,6 +99,7 @@ import {formToJSON} from "axios";
 
 
 const data = reactive({
+  user: JSON.parse(localStorage.getItem('code_user') || '{}'),
   name: null,
   username: null,
   pageNum: 1,
@@ -193,6 +210,10 @@ const del =(id)=>{
       }
     })
   }).catch(err => {})
+}
+
+const handleFileSuccess=(res)=>{
+  data.form.avatar = res.data
 }
 
 const handleSelectionChange = (rows) => {//实际选择的数组

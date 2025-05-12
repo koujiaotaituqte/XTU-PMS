@@ -14,6 +14,7 @@ public class Admin extends Account {
     private String[] idsArr;
     private String role;
     private String token;
+    private String avatar;
 
     public String getRole() { return role; }
 
@@ -92,5 +93,15 @@ public class Admin extends Account {
     @Override
     public void setToken(String token) {
         this.token = token;
+    }
+
+    @Override
+    public String getAvatar() {
+        return avatar;
+    }
+
+    @Override
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 }

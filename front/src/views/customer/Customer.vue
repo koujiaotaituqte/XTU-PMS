@@ -18,10 +18,12 @@
 
         <el-dropdown>
           <div style="display: flex; align-items: center;">
-            <img style="width: 40px; height: 40px; border-radius: 50%;margin-right: 5px;" src="../../assets/imgs/manager.jpg" alt="">
+            <img v-if="data.user?.avatar" style="width: 40px; height: 40px; border-radius: 50%;margin-right: 5px;" :src="data.user?.avatar" alt="">
+            <img v-else style="width: 40px; height: 40px; border-radius: 50%;margin-right: 5px;" src="../../assets/imgs/manager.jpg" alt="">
+
             <span>
-                            {{ data.user?.name }}
-                        </span>
+              {{ data.user?.name }}
+            </span>
           </div>
 
           <template #dropdown>
