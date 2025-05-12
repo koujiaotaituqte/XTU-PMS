@@ -6,10 +6,26 @@
         <id column="id" property="id" />
         <result column="roomtype_id" property="roomtypeId" />
         <result column="status" property="status" />
+        <result column="roomtype_title" property="roomtypeTitle" /> <!-- 新增房型名称映射 -->
     </resultMap>
 
     <!-- 动态查询 -->
-
+    <select id="selectAll" resultMap="BaseResultMap">
+        SELECT
+        r.id,
+        r.roomtype_id,
+        r.status,
+        rt.title AS roomtype_title
+        FROM room r
+        LEFT JOIN roomtype rt ON r.roomtype_id = rt.id
+        <where>
+            <if test="id != null">AND r.id LIKE CONCAT('%', #{id}, '%')</if>
+            <if test="roomtypeId != null">AND r.roomtype_id LIKE CONCAT('%', #{roomtypeId}, '%')</if>
+            <if test="status != null">AND r.status LIKE CONCAT('%', #{status}, '%')</if>
+            <if test="roomtypeTitle != null">AND rt.title LIKE CONCAT('%', #{roomtypeTitle}, '%')</if>
+        </where>
+        ORDER BY r.id DESC
+    </select>
 
     <!-- 校验房型存在 -->
     <select id="existsRoomType" resultType="boolean">
@@ -30,12 +46,14 @@
         </trim>
     </insert>
 
-    <select id="selectAll" resultMap="BaseResultMap">
-        SELECT * FROM bookroom
-        <where>
-            <if test="userId != null">AND user_id = #{userId}</if>
-            <if test="roomtypeId != null">AND roomtype_id = #{roomtypeId}</if>
-        </where>
-        ORDER BY id DESC
-    </select>
+    <!-- 根据ID更新 -->
+    <update id="updateById" parameterType="com.example.entity.Room">
+        UPDATE room
+        <set>
+            <if test="roomtypeId != null">roomtype_id = #{roomtypeId},</if>
+            <if test="status != null">status = #{status},</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
 </mapper>
