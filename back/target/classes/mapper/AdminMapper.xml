@@ -19,13 +19,6 @@
         order by id desc
     </select>
 
-<!--    <select id="selectByUsername"  resultType="com.example.entity.Admin">-->
-<!--        select *-->
-<!--        from 'admin'-->
-<!--        <where>username = #{username}-->
-<!--        </where>-->
-<!--    </select>-->
-
     <insert id = "insert">
         insert into admin (username,password,name,phone,email,role,avatar)
         values(#{username},#{password},#{name},#{phone},#{email},#{role},#{avatar})

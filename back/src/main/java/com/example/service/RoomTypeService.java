@@ -20,7 +20,7 @@ public class RoomTypeService {
     @Transactional
     public void add(RoomType roomType) {
         // 校验房型名称唯一性
-        if (roomTypeMapper.existsByTitle(roomType.getTitle())) {
+        if (roomTypeMapper.existsByTitle(roomType.getTitle(),roomType.getId())) {
             throw new CustomException("房型名称已存在");
         }
         roomTypeMapper.insert(roomType);
@@ -51,9 +51,10 @@ public class RoomTypeService {
     }
 
     public boolean existsById(Integer id) {
-        if (roomTypeMapper.existsByTitle(id)){
-            throw new CustomException("房型名称已存在");
-        }
-        return false;
+        return roomTypeMapper.existsById(id) > 0;
+    }
+
+    public boolean existsByTitle(String title, Integer id) {
+        return roomTypeMapper.existsByTitle(title, id);
     }
 }
