@@ -1,18 +1,18 @@
 package com.example.entity;
 
-import java.math.BigDecimal;
-
 public class Room {
     private Integer id;
-    private Integer roomtypeId;  // 对应roomtype_id字段
-    private Integer status;      // 0-空闲
+    private Integer roomtypeId;
+    private String roomtypeTitle; // 新增房型名称字段
+    private Integer status;
 
-    public Integer getStatus() {
-        return status;
+    // Getters and Setters
+    public Integer getId() {
+        return id;
     }
 
-    public void setStatus(Integer status) {
-        this.status = status;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Integer getRoomtypeId() {
@@ -23,11 +23,19 @@ public class Room {
         this.roomtypeId = roomtypeId;
     }
 
-    public Integer getId() {
-        return id;
+    public String getRoomtypeTitle() {
+        return roomtypeTitle;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setRoomtypeTitle(String roomtypeTitle) {
+        this.roomtypeTitle = roomtypeTitle;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 }
