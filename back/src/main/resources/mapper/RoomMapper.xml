@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.RoomMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.entity.Room">
+        <id column="id" property="id" />
+        <result column="roomtype_id" property="roomtypeId" />
+        <result column="status" property="status" />
+    </resultMap>
+
+    <!-- 动态查询 -->
+
+
+    <!-- 校验房型存在 -->
+    <select id="existsRoomType" resultType="boolean">
+        SELECT COUNT(*) > 0 FROM roomtype WHERE id = #{roomtypeId}
+    </select>
+
+    <!-- 动态插入 -->
+    <insert id="insert" parameterType="com.example.entity.Room" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO room
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            roomtype_id,
+            <if test="status != null">status,</if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            #{roomtypeId},
+            <if test="status != null">#{status},</if>
+        </trim>
+    </insert>
+
+    <select id="selectAll" resultMap="BaseResultMap">
+        SELECT * FROM bookroom
+        <where>
+            <if test="userId != null">AND user_id = #{userId}</if>
+            <if test="roomtypeId != null">AND roomtype_id = #{roomtypeId}</if>
+        </where>
+        ORDER BY id DESC
+    </select>
+</mapper>

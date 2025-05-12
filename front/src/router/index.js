@@ -14,7 +14,8 @@ const router = createRouter({
         {path: 'updatepassword',meta: {name: '个人中心'},component:()=>import('../views/UpdatePassword.vue')},
 
         {path: 'roomCustomer',component: () => import('../views/manager/RoomCustomer.vue')},
-        {path: 'bookCustomer',component: () => import('../views/manager/BookCustomer.vue')}
+        {path: 'bookCustomer',component: () => import('../views/manager/BookCustomer.vue')},
+        {path: 'roomShow',component: () => import('../views/manager/roomShow.vue')}
       ]
     },
     {path: '/customer',name: 'user',component: ()=> import('../views/customer/Customer.vue'),
