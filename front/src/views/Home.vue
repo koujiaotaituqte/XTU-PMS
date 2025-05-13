@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="card">
+    <div class="card" style="width: 50%">
       <div class="notice-title">系统公告</div>
       <el-timeline class="timeline-container">
         <el-timeline-item
@@ -48,13 +48,6 @@ loadNotice();
 </script>
 
 <style scoped>
-.card {
-  margin-top: 20px;
-  padding: 20px;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
-}
 
 .notice-title {
   font-size: 20px;
