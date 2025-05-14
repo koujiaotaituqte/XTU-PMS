@@ -27,7 +27,9 @@ public interface RoomMapper {
     //@Select("SELECT COUNT(*) FROM roomtype WHERE id = #{roomtypeId}")
     boolean existsRoomType(Integer roomtypeId);
 
+    boolean existsRoomId(Integer id);
     // 检查房间号是否存在（根据需求添加字段后使用）
     // @Select("SELECT COUNT(*) FROM room WHERE room_number = #{roomNumber}")
     // boolean existsByRoomNumber(String roomNumber);
+
 }

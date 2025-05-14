@@ -16,6 +16,7 @@
         r.id,
         r.roomtype_id,
         r.status,
+        r.user_id, <!-- 已添加 -->
         rt.title AS roomtype_title
         FROM room r
         LEFT JOIN roomtype rt ON r.roomtype_id = rt.id
@@ -32,19 +33,16 @@
     <select id="existsRoomType" resultType="boolean">
         SELECT COUNT(*) > 0 FROM roomtype WHERE id = #{roomtypeId}
     </select>
+    <select id="existsRoomId" resultType="boolean">
+        SELECT COUNT(*) > 0 FROM room WHERE id = #{id}
+    </select>
 
-    <!-- 动态插入 -->
-    <insert id="insert" parameterType="com.example.entity.Room" useGeneratedKeys="true" keyProperty="id">
+    <!-- 修改插入语句 -->
+    <insert id="insert" parameterType="com.example.entity.Room" useGeneratedKeys="false">
         INSERT INTO room
-        <trim prefix="(" suffix=")" suffixOverrides=",">
-            roomtype_id,
-            <if test="status != null">status,</if>
-        </trim>
+            (id, roomtype_id, status, user_id)
         VALUES
-        <trim prefix="(" suffix=")" suffixOverrides=",">
-            #{roomtypeId},
-            <if test="status != null">#{status},</if>
-        </trim>
+            (#{id}, #{roomtypeId}, #{status}, #{userId})
     </insert>
 
     <!-- 根据ID更新 -->
@@ -57,5 +55,10 @@
         </set>
         WHERE id = #{id}
     </update>
+
+    <!-- 根据ID删除 -->
+    <delete id="deleteById">
+        DELETE FROM room WHERE id = #{id}
+    </delete>
 
 </mapper>
