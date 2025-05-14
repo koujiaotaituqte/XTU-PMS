@@ -7,6 +7,7 @@
         <result column="roomtype_id" property="roomtypeId" />
         <result column="status" property="status" />
         <result column="roomtype_title" property="roomtypeTitle" /> <!-- 新增房型名称映射 -->
+        <result column="user_id" property="userId" /> <!-- 新增映射 -->
     </resultMap>
 
     <!-- 动态查询 -->
@@ -52,6 +53,7 @@
         <set>
             <if test="roomtypeId != null">roomtype_id = #{roomtypeId},</if>
             <if test="status != null">status = #{status},</if>
+            <if test="userId != null">user_id = #{userId},</if> <!-- 确保更新 user_id -->
         </set>
         WHERE id = #{id}
     </update>

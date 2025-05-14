@@ -74,16 +74,29 @@ const assignRoom = (row) => {
 // 确认分配
 const confirmAssign = () => {
   if (!data.selectedRoom) {
-    ElMessage.warning('请选择房间')
-    return
+    ElMessage.warning('请选择房间');
+    return;
   }
-  // 更新房间状态
-  request.put('/room', {id: data.selectedRoom, status: 1}).then(() => {
-    ElMessage.success('分配成功')
-    data.assignVisible = false
-    load()
-  })
-}
+  // 获取当前预订的用户ID
+  const userId = data.currentBooking.userId;
+  const roomtypeId = data.currentBooking.roomtypeId; // 关键：新增 roomtypeId
+  // 更新房间状态并关联用户ID
+  request.put('/room/assign', {
+    roomId: data.selectedRoom,
+    userId: userId,
+    roomtypeId: roomtypeId // 新增参数
+  }).then(() => {
+    // 可选：更新预订记录的 room_id（如需要）
+    request.put('/bookroom/update', {
+      id: data.currentBooking.id,
+      roomId: data.selectedRoom
+    }).then(() => {
+      ElMessage.success('分配成功');
+      data.assignVisible = false;
+      load();
+    });
+  });
+};
 
 const reset = () => {
   data.userId = null

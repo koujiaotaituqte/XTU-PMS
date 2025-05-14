@@ -47,7 +47,7 @@
     <update id="updateById" parameterType="com.example.entity.BookRoom">
         UPDATE bookroom
         <set>
-            <if test="roomtypeId != null">roomtype_id = #{roomtypeId},</if>
+            <if test="roomId != null">room_id = #{roomId},</if>
             <if test="startTime != null">start_time = #{startTime},</if>
             <if test="endTime != null">end_time = #{endTime},</if>
             <if test="day != null">day = #{day}</if>

@@ -5,6 +5,7 @@ public class Room {
     private Integer roomtypeId;
     private String roomtypeTitle; // 新增房型名称字段
     private Integer status;
+    private Integer userId; // 新增字段
 
     // Getters and Setters
     public Integer getId() {
@@ -37,5 +38,13 @@ public class Room {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 }

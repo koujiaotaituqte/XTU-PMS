@@ -14,6 +14,7 @@
       <el-table :data="data.tableData" style="width: 100%">
         <el-table-column prop="id" label="房间号" />
         <el-table-column prop="roomtypeTitle" label="房型名称" /> <!-- 修改为房型名称 -->
+        <el-table-column prop="userId" label="用户ID" /> <!-- 新增列 -->
         <el-table-column label="状态">
           <template #default="scope">
             <el-tag :type="scope.row.status === 0 ? 'success' : 'danger'">

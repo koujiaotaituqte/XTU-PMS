@@ -6,6 +6,8 @@ import com.example.service.RoomService;
 import com.github.pagehelper.PageInfo;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+
 @RestController
 @RequestMapping("/room")
 public class RoomController {
@@ -57,5 +59,18 @@ public class RoomController {
         param.setStatus(status);
         PageInfo<Room> pageInfo = roomService.selectPage(pageNum, pageSize, param);
         return Result.success(pageInfo);
+    }
+    @PutMapping("/assign")
+    public Result assignRoom(@RequestBody Map<String, Integer> params) {
+        Integer roomId = params.get("roomId");
+        Integer userId = params.get("userId");
+        Integer roomtypeId = params.get("roomtypeId"); // 新增参数
+        Room room = new Room();
+        room.setRoomtypeId(roomtypeId);
+        room.setId(roomId);
+        room.setStatus(1);
+        room.setUserId(userId);
+        roomService.update(room);
+        return Result.success();
     }
 }
